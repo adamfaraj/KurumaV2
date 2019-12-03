@@ -1,0 +1,57 @@
+[
+  {
+    "id": "001",
+    "name": {
+      "first": "Adam",
+      "last": "Faraj"
+    },
+    "vehicle": {
+      "make": "",
+      "model": "",
+      "year": ""
+    },
+    "phoneNumber": "336-555-5555",
+    "location": {
+      "longitude": 36.044659,
+      "latitude": -79.766235
+    },
+    "services": {
+      "past": [
+        {
+          "id": "001",
+          "service": "Manual Transmission Flush",
+          "date": {
+            "month": "August",
+            "day": "15",
+            "time": "1:00 PM"
+          },
+          "mechanic": "Quick Lube"
+        },
+        {
+          "id": "002",
+          "service": "Full Synthetic Oil Change",
+          "date": {
+            "month": "August",
+            "day": "25",
+            "time": "12:00 PM",
+            "year": "2019"
+          },
+          "mechanic": "Express Lube"
+        }
+    ],
+      "future": [
+        {
+          "id": "003",
+          "service": "Spark Plug Replacement - 6 Cylinder",
+          "date": {
+            "month": "September",
+            "day": "15",
+            "time": "3:00 PM",
+            "year": "2019"
+          },
+          "mechanic": "Niced Up"
+        }
+      ]
+    }
+  }
+]

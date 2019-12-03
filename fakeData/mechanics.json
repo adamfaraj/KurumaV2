@@ -1,0 +1,126 @@
+[
+  {
+    "id": "001",
+    "name": "Express Lube",
+    "address": {
+      "street": "123 West Ave",
+      "city": "Greensboro",
+      "state": "NC",
+      "zipcode": "27410"
+    },
+    "phone": "336-555-5555",
+    "email": "mech@anic.com",
+    "hours": {
+      "0": {
+        "open": "8:00 AM",
+        "close": "1:00 PM"
+      },
+      "1": {
+        "open": "8:00 AM",
+        "close": "2:00 PM"
+      },
+      "2": {
+        "open": "8:00 AM",
+        "close": "3:00 PM"
+      },
+      "3": {
+        "open": "8:00 AM",
+        "close": "4:00 PM"
+      },
+      "4": {
+        "open": "8:00 AM",
+        "close": "5:00 PM"
+      },
+      "5": {
+        "open": "8:00 AM",
+        "close": "6:30 PM"
+      },
+      "6": {
+        "open": "8:00 AM",
+        "close": "7:00 PM"
+      }
+    },
+    "hourlyRate": 60,
+    "about": "We fix cars",
+    "services": {
+      "brakes": {
+        "pads": 59.99,
+        "rotors": 299.99,
+        "padsRotors": 359.99
+      },
+      "sparkPlugs": {
+        "labor": 45,
+        "withParts": {
+          "cylinders": {
+            "4": 60,
+            "6": 70,
+            "8": 80,
+            "10": 90
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "002",
+    "name": "Quick Lube",
+    "address": {
+      "street": "123 East Rd",
+      "city": "Greensboro",
+      "state": "NC",
+      "zipcode": "27410"
+    },
+    "phone": "336-555-5555",
+    "email": "mech@anic.com",
+    "hours": {
+      "0": {
+        "open": "8:00 AM",
+        "close": "5:10 PM"
+      },
+      "1": {
+        "open": "8:00 AM",
+        "close": "5:15 PM"
+      },
+      "2": {
+        "open": "8:00 AM",
+        "close": "5:20 PM"
+      },
+      "3": {
+        "open": "8:00 AM",
+        "close": "5:25 PM"
+      },
+      "4": {
+        "open": "8:00 AM",
+        "close": "5:30 PM"
+      },
+      "5": {
+        "open": "8:00 AM",
+        "close": "5:35 PM"
+      },
+      "6": {
+        "open": "8:00 AM",
+        "close": "5:40 PM"
+      }
+    },
+    "hourlyRate": 60,
+    "about": "We fix cars",
+    "services": {
+      "brakes": {
+        "pads": 59.99,
+        "rotors": 299.99,
+        "padsRotors": 359.99
+      },
+      "sparkPlugs": {
+        "labor": 45,
+        "withParts": {
+          "cylinders": {
+            "4": 60,
+            "6": 70,
+            "8": 80,
+            "10": 90
+          }
+        }
+      }
+    }
+  }
+]
