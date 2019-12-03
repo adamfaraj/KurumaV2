@@ -22,8 +22,8 @@ export default class Login extends Component {
           </View>
 
           <View style={styles.buttonContainer}>
-            <Button style={styles.button} title="Login" />
-            <Button style={styles.button} title="Register" />
+            <Button buttonStyle={styles.button} titleStyle={styles.button} title="Login" />
+            <Button buttonStyle={styles.button} titleStyle={styles.button} title="Register" />
           </View>
         </View>
     )
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flex: 1,
-    backgroundColor: 'lightblue',
+    // backgroundColor: 'lightblue',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     flex: 2,
-    backgroundColor: 'lightgreen',
+    // backgroundColor: 'lightgreen',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -56,14 +56,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   button: {
     borderRadius: 0,
     width: 100,
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: 'black',
+    color: 'white',
   }
 })
