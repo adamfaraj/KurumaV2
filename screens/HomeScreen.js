@@ -48,10 +48,6 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('Years', Years());
-    console.clear();
-    console.log(user);
-
     fetch(`${carURL}getYears`)
       .then(res => res.text())
       .then(res => res.slice(2, res.length - 2))

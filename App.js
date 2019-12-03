@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View, Text, ImageBackground, YellowBox } from 'react-native';
+import { 
+  Platform, 
+  StatusBar, 
+  StyleSheet, 
+  View, 
+  ImageBackground, 
+  YellowBox 
+} from 'react-native';
 
 import AppNavigator from './navigation/AppNavigator';
+import Login from './components/Login';
+
+var isLoggedIn = false;
+console.log('Login', Login);
 
 export default function App(props) {
+  if (!isLoggedIn) {
+    return (
+      <Login />
+    );
   // const [isLoadingComplete, setLoadingComplete] = useState(false);
   // if (!isLoadingComplete && !props.skipLoadingScreen) { 
   //   console.log('isLoadingComplete', isLoadingComplete);
@@ -16,7 +31,7 @@ export default function App(props) {
   //     //   onFinish={() => handleFinishLoading(setLoadingComplete)}
   //     // />
   //     );
-  //   } else {
+    } else {
   //   console.log('isLoadingComplete', isLoadingComplete);
   //   console.log('props', props);
     return (
@@ -27,40 +42,8 @@ export default function App(props) {
         </View>
       </ImageBackground>
     );
-  // }
+  }
 }
-
-// async function loadResourcesAsync() {
-//   await Promise.all([
-//     Asset.loadAsync([
-//       require('./assets/images/robot-dev.png'),
-//       require('./assets/images/robot-prod.png'),
-//     ]),
-//     Font.loadAsync({
-//       // This is the font that we are using for our tab bar
-//       ...Ionicons.font,
-//       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
-//       // remove this if you are not using it in your app
-//       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-//       'architects': require('./assets/fonts/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf'),
-//       'bhaina': require('./assets/fonts/fonts/Baloo_Bhaina/BalooBhaina-Regular.ttf'),
-//       'da': require('./assets/fonts/fonts/Baloo_Da/BalooDa-Regular.ttf'),
-//       'paaji': require('./assets/fonts/fonts/Baloo_Paaji/BalooPaaji-Regular.ttf'),
-//       'thambi': require('./assets/fonts/fonts/Baloo_Thambi/BalooThambi-Regular.ttf'),
-//       'bowlby': require('./assets/fonts/fonts/Bowlby_One/BowlbyOne-Regular.ttf'),
-//       'carter': require('./assets/fonts/fonts/Carter_One/CarterOne-Regular.ttf'),
-//       'chewy': require('./assets/fonts/fonts/Chewy/Chewy-Regular.ttf'),
-//       'fredoka': require('./assets/fonts/fonts/Fredoka_One/FredokaOne-Regular.ttf'),
-//       'fugaz': require('./assets/fonts/fonts/Fugaz_One/FugazOne-Regular.ttf'),
-//       'lalezar': require('./assets/fonts/fonts/Lalezar/Lalezar-Regular.ttf'),
-//       'lilita': require('./assets/fonts/fonts/Lilita_One/LilitaOne-Regular.ttf'),
-//       'racing': require('./assets/fonts/fonts/Racing_Sans_One/RacingSansOne-Regular.ttf'),
-//       'rancho': require('./assets/fonts/fonts/Rancho/Rancho-Regular.ttf'),
-//     }),
-//   ]);
-// }
-
-// loadResourcesAsync();
 
 function handleLoadingError(error) {
   // In this case, you might want to report the error to your error reporting
