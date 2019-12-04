@@ -11,7 +11,7 @@ import {
 import AppNavigator from './navigation/AppNavigator';
 import Login from './components/Login';
 
-var isLoggedIn = false;
+var isLoggedIn = true;
 console.log('Login', Login);
 
 export default function App(props) {
