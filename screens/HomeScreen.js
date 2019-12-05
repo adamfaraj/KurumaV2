@@ -53,7 +53,7 @@ export default class HomeScreen extends React.Component {
       .then(res => res.slice(2, res.length - 2))
       .then(res => JSON.parse(res))
       .then(res => {
-        for (var i = res.Years.min_year; i < parseInt(res.Years.max_year) + 1; i++) {
+        for (var i = res.Years.min_year; i <= parseInt(res.Years.max_year) + 1; i++) {
           Years.push(
             {
               'label': `${i}`,

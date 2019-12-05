@@ -8,6 +8,8 @@ import HomeScreen from '../screens/HomeScreen';
 import ServicesScreen from '../screens/ServicesScreen';
 import MechanicsScreen from '../screens/MechanicsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import Register from '../components/Register';
+import Login from '../components/Login';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -46,22 +48,6 @@ ServicesStack.navigationOptions = {
 };
 
 ServicesStack.path = '';
-
-// const LinksStack = createStackNavigator(
-//   {
-//     Links: LinksScreen,
-//   },
-//   config
-// );
-
-// LinksStack.navigationOptions = {
-//   tabBarLabel: 'Links',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-//   ),
-// };
-
-// LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {

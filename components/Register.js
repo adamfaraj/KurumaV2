@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
+import { Input, Button } from 'react-native-elements'
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Input, Button } from 'react-native-elements'
-import Register from './Register';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
 
-
-
-class Login extends Component {
+export default class Register extends Component {
 
   state = {
     email: '',
-    password: '',
+    password
+    : '',
   }
+
   onLogin() {
     // console.log('poop');
     console.log(state);
@@ -35,21 +32,16 @@ class Login extends Component {
           <View style={styles.loginContainer}>
             <Input style={styles.input} placeholder='Email' />
             <Input style={styles.input} placeholder='Password' />
+            <Input style={styles.input} placeholder='Confirm Password' />
           </View>
 
           <View style={styles.buttonContainer}>
-            <Button buttonStyle={styles.button} titleStyle={styles.button} title="Login" onPress={this.onLogin}/>
-            <Button buttonStyle={styles.button} titleStyle={styles.button} title="Register" onPress={() => this.props.navigation.navigate('Register')}/>
+            <Button buttonStyle={styles.button} titleStyle={styles.button} title="Register" onPress={this.onRegister}/>
           </View>
         </View>
     )
   };
 }
-
-const appNavigator = createStackNavigator({
-  Login: Login,
-  Register: Register,
-})
 
 const styles = StyleSheet.create({
   container: {
@@ -87,5 +79,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   }
 })
-
-export default createAppContainer(appNavigator);

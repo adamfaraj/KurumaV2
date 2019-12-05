@@ -11,13 +11,18 @@ import {
 import AppNavigator from './navigation/AppNavigator';
 import Login from './components/Login';
 
-var isLoggedIn = true;
 console.log('Login', Login);
 
 export default function App(props) {
-  if (!isLoggedIn) {
+  // var isLoggedIn = false;
+  state = {
+    isLoggedIn: false
+  }
+  // console.log(this.state);
+  console.log('props', props);
+  if (!this.state.isLoggedIn) {
     return (
-      <Login />
+      <Login state={state}/>
     );
   // const [isLoadingComplete, setLoadingComplete] = useState(false);
   // if (!isLoadingComplete && !props.skipLoadingScreen) { 
