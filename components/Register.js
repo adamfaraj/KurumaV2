@@ -38,7 +38,9 @@ export default class Register extends Component {
         }
       });
     }
-    console.log(this.state);
+    // console.log(this.state);
+    // this.props.navigation.navigate('Welcome');
+    // console.log('love');
   };
 
   onInputChange = event => {

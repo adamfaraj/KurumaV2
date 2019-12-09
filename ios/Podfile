@@ -38,6 +38,8 @@ target 'KurumaV2' do
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
+  pod 'RNAWSCognito', :path => '../node_modules/amazon-cognito-identity-js'
+
   target 'KurumaV2Tests' do
     inherit! :search_paths
     # Pods for testing
