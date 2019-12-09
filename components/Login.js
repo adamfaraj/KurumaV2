@@ -15,14 +15,8 @@ class Login extends Component {
     password: '',
   }
   onLogin() {
-    // console.log('poop');
     console.log(state);
   };
-
-  onRegister() {
-
-  };
-
 
   render() {
     return (

@@ -8,15 +8,24 @@ import {
   YellowBox 
 } from 'react-native';
 
+import Amplify from 'aws-amplify';
+import awsConfig from './aws-exports';
 import AppNavigator from './navigation/AppNavigator';
 import Login from './components/Login';
 
-console.log('Login', Login);
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: awsConfig.REGION,
+    userPoolId: awsConfig.USER_POOL_ID,
+    userPoolWebClientId: awsConfig.APP_CLIENT_ID
+  }
+});
 
 export default function App(props) {
   // var isLoggedIn = false;
   state = {
-    isLoggedIn: false
+    isLoggedIn: false,
   }
   // console.log(this.state);
   console.log('props', props);

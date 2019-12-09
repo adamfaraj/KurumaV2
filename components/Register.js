@@ -1,25 +1,54 @@
 import React, { Component } from 'react';
-import { Input, Button } from 'react-native-elements'
 import { View, Text, StyleSheet } from 'react-native';
+
+import { Input, Button } from 'react-native-elements';
+import { Auth } from 'aws-amplify';
 
 
 export default class Register extends Component {
 
-  state = {
-    email: '',
-    password
-    : '',
+  constructor(props) {
+    super(props);
+    console.log('poop');
+    console.log('props', props);
+    this.state = {
+      username: "",
+      password: "",
+      confirmPassword: ""
+    }
   }
 
-  onLogin() {
-    // console.log('poop');
-    console.log(state);
+
+  onRegister = async event => {
+    const { username, password } = this.state;
+    try {
+      const signUpResponse = await Auth.signUp({
+        username,
+        password,
+      });
+      console.log(signUpResponse);
+      this.props.navigation.navigate('Welcome');
+    } catch (error) {
+      let err = null;
+      !error.message ? err = { "message": error } : err = error;
+      this.setState({
+        errors: {
+          ...this.state.errors,
+          cognito: err
+        }
+      });
+    }
+    console.log(this.state);
   };
 
-  onRegister() {
-
-  };
-
+  onInputChange = event => {
+    console.log(this.props);
+    console.log(event);
+    // this.setState({
+    //   [event.target.id]: event.target.value
+    // });
+    console.log(this.state);
+  }
 
   render() {
     return (
@@ -30,9 +59,9 @@ export default class Register extends Component {
           </View>
 
           <View style={styles.loginContainer}>
-            <Input style={styles.input} placeholder='Email' />
-            <Input style={styles.input} placeholder='Password' />
-            <Input style={styles.input} placeholder='Confirm Password' />
+            <Input style={styles.input} onChangeText={(username) => this.setState({username: username})} placeholder='Email' />
+            <Input style={styles.input} onChangeText={(password) => this.setState({password: password})} placeholder='Password' secureTextEntry={true}/>
+            <Input style={styles.input} value={this.state.confirmPassword} onChangeText={(confirmPassword) => this.setState({confirmPassword: confirmPassword})} placeholder='Confirm Password' secureTextEntry={true}/>
           </View>
 
           <View style={styles.buttonContainer}>
