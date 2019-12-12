@@ -1,5 +1,5 @@
 // import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component }from 'react';
 import {
   Image,
   Platform,
@@ -31,7 +31,7 @@ let Makes = [];
 let Models = [];
 const carURL = 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=';
 
-export default class HomeScreen extends React.Component {
+export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,6 +45,7 @@ export default class HomeScreen extends React.Component {
       carModels: [],
     } 
 
+    // console.log('props ', this.props);
   }
 
   componentDidMount() {
@@ -80,6 +81,7 @@ export default class HomeScreen extends React.Component {
     // }
 
     // this.setState({user: user})
+    console.log('mounted ', this.props);
   }
 
   onYearSelected(year) {
@@ -175,7 +177,12 @@ export default class HomeScreen extends React.Component {
             contentContainerStyle={styles.contentContainer}>
   
             <View style={styles.getStartedContainer}>
-              <Text style={styles.text}>Hi {myUser.name.first}!</Text>
+              {/* <Text style={styles.text}>Hi {myUser.name.first}!</Text> */}
+              {this.props.screenProps.isAuthenticated && this.props.screenProps.user && (
+              <Text style={styles.text}>
+                Hi {this.props.screenProps.user.attributes.email}!
+              </Text>
+              )}
               
               <RNPickerSelect
                 onValueChange={(year) => this.onYearSelected(year)}

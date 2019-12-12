@@ -9,8 +9,6 @@ export default class Register extends Component {
 
   constructor(props) {
     super(props);
-    console.log('poop');
-    console.log('props', props);
     this.state = {
       username: "",
       password: "",

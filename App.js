@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { 
   Platform, 
   StatusBar, 
@@ -10,8 +10,14 @@ import {
 
 import Amplify from 'aws-amplify';
 import awsConfig from './aws-exports';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+
 import AppNavigator from './navigation/AppNavigator';
 import Login from './components/Login';
+import LoginNavigator from './navigation/LoginNavigator';
+import Register from './components/Register';
+import Welcome from './components/Welcome';
 
 Amplify.configure({
   Auth: {
@@ -22,40 +28,46 @@ Amplify.configure({
   }
 });
 
-export default function App(props) {
+export default class App extends Component {
   // var isLoggedIn = false;
-  state = {
-    isLoggedIn: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoggedIn: false,
+      isAuthenticated: false,
+      user: null
+    }
   }
-  // console.log(this.state);
-  console.log('props', props);
-  if (!this.state.isLoggedIn) {
-    return (
-      <Login state={state}/>
-    );
-  // const [isLoadingComplete, setLoadingComplete] = useState(false);
-  // if (!isLoadingComplete && !props.skipLoadingScreen) { 
-  //   console.log('isLoadingComplete', isLoadingComplete);
-  //   console.log('props', props);
-  //   return (
-  //     <ImageBackground source={require('./assets/')}></ImageBackground>
-  //     // <AppLoading
-  //     //   startAsync={loadResourcesAsync}
-  //     //   onError={handleLoadingError}
-  //     //   onFinish={() => handleFinishLoading(setLoadingComplete)}
-  //     // />
-  //     );
-    } else {
-  //   console.log('isLoadingComplete', isLoadingComplete);
-  //   console.log('props', props);
-    return (
-      <ImageBackground source={require('./assets/images/15025106456_15fb5b0c12_z.jpg')} style={{flex: 1, width: '100%', height: '100%'}}>
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar backgroundColor="white" barStyle="dark-content" translucent="false" />}
-          <AppNavigator />
-        </View>
-      </ImageBackground>
-    );
+
+  setAuthStatus = authenticated => {
+    this.setState({ isAuthenticated: authenticated });
+  }
+
+  setUser = user => {
+    this.setState({ user: user });
+    console.log('app state', this.state);
+  }
+
+  render() {
+    const authProps = {
+      isAuthenticated: this.state.authenticated,
+      user: this.state.user,
+      setAuthStatus: this.setAuthStatus,
+      setUser: this.setUser
+    }
+    if (!this.state.isAuthenticated) {
+      return (
+        // <Login authProps={authProps}/>
+        <LoginNavigator screenProps={authProps}/>
+      );
+    // const [isLoadingComplete, setLoadingComplete] = useState(false);
+    // if (!isLoadingComplete && !props.skipLoadingScreen) { 
+      } else if (this.state.isAuthenticated) {
+      return (
+        <AppNavigator screenProps={this.state}/>
+      );
+    }
+
   }
 }
 
@@ -81,3 +93,13 @@ const styles = StyleSheet.create({
     // background: linear-gradient('to left', '#30183a', '#19191f'),
   },
 });
+
+// const loginNavigator = createStackNavigator({
+//   Login: Login,
+//   Register: Register,
+//   Welcome: Welcome,
+//   // HomeScreen: HomeScreen,
+//   // AppNav: tabNavigator
+// })
+
+// createAppContainer(loginNavigator);

@@ -10,23 +10,36 @@ import Register from './Register';
 import Welcome from './Welcome';
 import HomeScreen from '../screens/HomeScreen';
 import tabNavigator from '../navigation/MainTabNavigator';
-import AppNavigator from '../navigation/AppNavigator';
+// import AppNavigator from '../navigation/AppNavigator';
+// import AppNav from '../navigation/AppNavigator';
 
 
 
-class Login extends Component {
-
-  state = {
-    username: '',
-    password: '',
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      errors: ''
+    }
+    console.log('props ', this.props);
   }
 
   onLogin = async event => {
-    console.log(this.state);
     try {
-      const user = await Auth.signIn(this.state.username, this.state.password);
-      console.log(user);
-      this.props.navigation.navigate('AppNav');
+      const user = await Auth.signIn(this.state.username, this.state.password)
+        // .then(
+        //   render() { }
+        // );
+      this.props.screenProps.setUser(user);
+      this.props.screenProps.setAuthStatus(true);
+      // console.log('user ', user);
+      // console.log('state ', this.state);
+      // render() {
+        // return <AppNavigator />;
+      // }
+      // this.props.navigation.navigate('AppNav');
     } catch (error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
@@ -61,13 +74,13 @@ class Login extends Component {
   };
 }
 
-const appNavigator = createStackNavigator({
-  Login: Login,
-  Register: Register,
-  Welcome: Welcome,
-  // HomeScreen: HomeScreen,
-  AppNav: tabNavigator
-})
+// const appNavigator = createStackNavigator({
+//   Login: Login,
+//   Register: Register,
+//   Welcome: Welcome,
+//   // HomeScreen: HomeScreen,
+//   // AppNav: tabNavigator
+// })
 
 const styles = StyleSheet.create({
   container: {
@@ -106,4 +119,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default createAppContainer(appNavigator);
+// export default createAppContainer(appNavigator);
