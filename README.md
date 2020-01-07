@@ -4,7 +4,7 @@
 1. ` npm start `
 
 2. Run instructions for iOS:
-    • run `npm react-native run-ios`
+    • run `npm react-native run-ios` or `npm run ios`
     - or -
     • Open KurumaV2/ios/KurumaV2.xcworkspace in Xcode or run "xed -b ios"
     • Hit the Run button
